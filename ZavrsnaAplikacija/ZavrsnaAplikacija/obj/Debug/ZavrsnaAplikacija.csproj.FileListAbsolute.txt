@@ -87,3 +87,7 @@ D:\3. SmartInIT Web programiranje Backend\Zavrsni projekat\ZavrsnaAplikacija\Zav
 D:\3. SmartInIT Web programiranje Backend\Zavrsni projekat\ZavrsnaAplikacija\ZavrsnaAplikacija\obj\Debug\ZavrsnaAplikacija.csproj.CopyComplete
 D:\3. SmartInIT Web programiranje Backend\Zavrsni projekat\ZavrsnaAplikacija\ZavrsnaAplikacija\obj\Debug\ZavrsnaAplikacija.dll
 D:\3. SmartInIT Web programiranje Backend\Zavrsni projekat\ZavrsnaAplikacija\ZavrsnaAplikacija\obj\Debug\ZavrsnaAplikacija.pdb
+D:\3. SmartInIT Web programiranje Backend\Zavrsni projekat\ZavrsnaAplikacija\ZavrsnaAplikacija\bin\AutoMapper.dll
+D:\3. SmartInIT Web programiranje Backend\Zavrsni projekat\ZavrsnaAplikacija\ZavrsnaAplikacija\bin\AutoMapper.xml
+D:\3. SmartInIT Web programiranje Backend\Zavrsni projekat\ZavrsnaAplikacija\ZavrsnaAplikacija\bin\Swashbuckle.Core.dll
+D:\3. SmartInIT Web programiranje Backend\Zavrsni projekat\ZavrsnaAplikacija\ZavrsnaAplikacija\bin\WebActivatorEx.dll

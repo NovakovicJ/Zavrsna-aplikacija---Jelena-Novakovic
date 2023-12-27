@@ -1,3 +1,4 @@
+using AutoMapper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,7 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using System.Web.Security;
 using System.Web.SessionState;
+using ZavrsnaAplikacija.App_Start;
 
 namespace ZavrsnaAplikacija
 {
@@ -20,6 +22,7 @@ namespace ZavrsnaAplikacija
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            Mapper.Initialize(c=>c.AddProfile<MappingProfile>());
         }
     }
 }

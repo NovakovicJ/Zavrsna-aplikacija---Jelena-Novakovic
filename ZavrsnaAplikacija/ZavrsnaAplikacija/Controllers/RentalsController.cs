@@ -17,8 +17,13 @@ namespace ZavrsnaAplikacija.Controllers
         // GET: Rentals
         public ActionResult Index()
         {
-            var rentals = db.Rentals.Include(r => r.Car).Include(r => r.Customer);
-            return View(rentals.ToList());
+            if (User.IsInRole(RoleName.Admin) || User.IsInRole(RoleName.Employee))
+            {
+                var rentals = db.Rentals.Include(c => c.Car).Include(cu => cu.Customer);
+                return View("Index", rentals.ToList());
+            }
+            else
+                return View("Forbidden");
         }
 
         // GET: Rentals/Details/5
@@ -39,9 +44,16 @@ namespace ZavrsnaAplikacija.Controllers
         // GET: Rentals/Create
         public ActionResult Create()
         {
-            ViewBag.CarId = new SelectList(db.Cars, "CarId", "LicensePlate");
-            ViewBag.CustomerId = new SelectList(db.Customers, "CustomerId", "Name");
-            return View();
+            if (User.IsInRole(RoleName.Admin) || User.IsInRole(RoleName.Employee))
+            {
+                ViewBag.CarId = new SelectList(db.Cars, "CarId", "LicensePlate");
+                ViewBag.CustomerId = new SelectList(db.Customers, "CustomerId", "Name");
+                return View();
+            }
+            else
+            {
+                return View("Forbidden");
+            }
         }
 
         // POST: Rentals/Create

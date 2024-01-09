@@ -1,0 +1,56 @@
+﻿@model IEnumerable<ZavrsnaAplikacija.Models.Car>
+@{
+    ViewBag.Title = "ReadOnlyList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+
+<h2>Cars</h2>
+
+<div class="col-lg-12 col-md-12 col-sm-12">
+    <table id="cars" class="table table-bordered table-hover" style="width:100%">
+        <thead>
+            <tr>
+                <th>Manufacturer</th>
+                <th>Model</th>
+                <th>LicensePlate</th>
+                <th>Year</th>
+                <th>Available</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+@section scripts
+{
+    <script>
+            $(document).ready(function () {
+                var table = $("#cars").DataTable({
+                    ajax: {
+                        "url": "/Cars/GetData",
+                        dataSrc: ""
+                    },
+                    columnDefs: [
+                        { "width": "20%", "targets": 0 }],
+                    columns: [
+                        { "data": "Manufacturer" },
+                        { "data": "Model" },
+                        { "data": "LicensePlate" },
+                        { "data": "Year" },
+                        {
+                            "data": "Available",
+                            render: function (data) {
+                                if (data)
+                                    return "Yes";
+                                else
+                                    return "No";
+                            } }
+                    ],
+                    "language": {
+                        "emptyTable": "No data found"
+                    }
+
+                });
+            });
+    </script>
+}

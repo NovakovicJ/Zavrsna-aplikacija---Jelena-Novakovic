@@ -17,7 +17,9 @@ namespace ZavrsnaAplikacija.Controllers
         // GET: Cars
         public ActionResult Index()
         {
-            return View(db.Cars.ToList());
+            if (User.IsInRole(RoleName.Admin) || User.IsInRole(RoleName.Employee))
+                return View(db.Cars.ToList());
+            return View("ReadOnlyList");
         }
 
         // GET: Cars/Details/5
@@ -122,6 +124,23 @@ namespace ZavrsnaAplikacija.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        [AllowAnonymous]
+        public ActionResult GetData()
+        {
+            List<Car> lst = db.Cars.ToList();
+            var subCategoryToReturn = lst.Select(S => new
+            {
+                CarId = S.CarId,
+                Available = S.Available,
+                LicensePlate = S.LicensePlate,
+                Manufacturer = S.Manufacturer,
+                Model = S.Model,
+                Year = S.Year
+            });
+
+            return this.Json(subCategoryToReturn, JsonRequestBehavior.AllowGet);
         }
     }
 }

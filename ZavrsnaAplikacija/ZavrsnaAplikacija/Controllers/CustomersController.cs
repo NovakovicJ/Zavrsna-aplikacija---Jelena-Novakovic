@@ -17,7 +17,10 @@ namespace ZavrsnaAplikacija.Controllers
         // GET: Customers
         public ActionResult Index()
         {
-            return View(db.Customers.ToList());
+            if (User.IsInRole(RoleName.Admin) || User.IsInRole(RoleName.Employee))
+                return View(db.Customers.ToList());
+            else
+                return View("Forbidden");
         }
 
         // GET: Customers/Details/5

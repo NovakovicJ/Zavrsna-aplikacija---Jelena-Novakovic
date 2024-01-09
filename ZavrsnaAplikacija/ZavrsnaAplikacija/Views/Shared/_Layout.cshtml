@@ -27,10 +27,7 @@
                     <input class="form-control me-sm-2" type="search" placeholder="Search">
                     <button class="btn btn-dark disabled" type="submit">Search</button>
                 </form>
-                <ul class="nav navbar-nav navbar-right">
-                    <li>@Html.ActionLink("Register", "Index", "Home", new { area = "" }, new { @class = "nav-link text-white" })</li>
-                    <li>@Html.ActionLink("Log In", "Index", "Home", new { area = "" }, new { @class = "nav-link text-white" })</li>
-                </ul>
+                @Html.Partial("_LoginPartial")
             </div>
         </div>
     </nav>
